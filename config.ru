@@ -1,3 +1,2 @@
-require './hello'
-run Sinatra::Application
-
+require './app'
+run Focaccia.new

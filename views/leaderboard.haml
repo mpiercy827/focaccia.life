@@ -1,0 +1,36 @@
+!!! 5
+%html
+  %head
+    %title Focaccia
+    %link{ href: './assets/app.css', rel: 'stylesheet' }
+  %body
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .masthead.clearfix
+            .inner
+              %h3.masthead-brand Focaccia'd
+              %nav
+                %ul.nav.masthead-nav
+                  %li
+                    %a{ href: '/' } Home
+                  %li.active
+                    %a{ href: '/leaderboard' } Leaderboard
+          .inner.cover
+            %table.table
+              %thead
+                %tr
+                  %th Name
+                  %th Count
+              %tbody
+                - @leaderboard.each do |entry|
+                  %tr
+                    %td
+                      = entry[:name]
+                    %td
+                      = entry[:count]
+          .mastfoot
+            .inner
+              Built by
+              %a{ href: 'http://itsachen.com' } itsachen
+
