@@ -26,7 +26,7 @@
                 - @leaderboard.each do |entry|
                   %tr
                     %td
-                      = entry[:name]
+                      = entry[:name].capitalize
                     %td
                       = entry[:count]
           .mastfoot

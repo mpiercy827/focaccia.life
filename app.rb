@@ -34,7 +34,7 @@ class Focaccia < Sinatra::Base
 
   post '/cacc' do
     if params[:name]
-      redis_key = 'focaccia:victim_count:' + params[:name]
+      redis_key = 'focaccia:victim_count:' + params[:name].downcase
 
       if redis.exists(redis_key)
         redis.incr(redis_key)
