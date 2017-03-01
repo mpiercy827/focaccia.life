@@ -25,7 +25,7 @@ class Focaccia < Sinatra::Base
   get '/leaderboard' do
     @leaderboard = redis.keys('focaccia:victim_count:*').map do |key|
       name = key.match(/focaccia:victim_count:([a-zA-Z]+)/)[1]
-      { name: name, count: redis.get(key) }
+      { name: name, count: redis.get(key).to_i }
     end
     @leaderboard.sort! {|a,b| -1 * (a[:count] <=> b[:count]) }
 
