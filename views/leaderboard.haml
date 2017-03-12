@@ -20,11 +20,14 @@
             %table.table
               %thead
                 %tr
+                  %th Rank
                   %th Name
                   %th Count
               %tbody
                 - @leaderboard.each do |entry|
                   %tr
+                    %td
+                      = entry[:rank]
                     %td
                       = entry[:name].capitalize
                     %td
