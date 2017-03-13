@@ -28,6 +28,8 @@ class Focaccia < Sinatra::Base
       { name: name, count: redis.get(key).to_i }
     end
     @leaderboard.sort! {|a,b| -1 * (a[:count] <=> b[:count]) }
+    counts = @leaderboard.map {|entry| entry[:count] }
+    @leaderboard.map! {|entry| { name: entry[:name], count: entry[:count], rank: counts.index(entry[:count]) + 1 }}
 
     haml :leaderboard
   end
