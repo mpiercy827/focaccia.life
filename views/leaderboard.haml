@@ -25,13 +25,14 @@
                   %th Count
               %tbody
                 - @leaderboard.each do |entry|
-                  %tr
-                    %td
-                      = entry[:rank]
-                    %td
-                      = entry[:name].capitalize
-                    %td
-                      = entry[:count]
+                  - if entry[:count] > 0
+                    %tr
+                      %td
+                        = entry[:rank]
+                      %td
+                        = entry[:name].capitalize
+                      %td
+                        = entry[:count]
           .mastfoot
             .inner
               Built by
